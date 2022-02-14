@@ -11,7 +11,7 @@
 在工程 pubspec.yaml 中加入 
 
         dependencies:
-            push_message_register: 2.2.2
+            push_message_register: 0.0.1
 
 # 使用
 
