@@ -1,7 +1,7 @@
 name: push_message_register
 description: A new flutter plugin project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/chn-sunch/push_message_register
 
 environment:
   sdk: ">=2.15.0 <3.0.0"

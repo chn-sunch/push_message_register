@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-// import 'package:push_message_register/push_message_register.dart';
+import 'package:push_message_register/push_message_register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // PushMessageRegister _pushMessageRegister = PushMessageRegister();
+  PushMessageRegister _pushMessageRegister = PushMessageRegister();
   String _brand = "android";
   @override
   void initState() {
@@ -28,12 +28,9 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      // _pushMessageRegister.onReceiveMessage().listen((event) {
-      //   _brand = event.toString();
-      //   setState(() {
-      //
-      //   });
-      // });
+      _pushMessageRegister.onReceiveMessage().listen((event) {
+        print(event);
+      });
       //vivo配置在AndroidManifest.xml
       Map apikey = {"XIAOMI_APP_ID": "小米appid", "XIAOMI_APP_KEY": "小米appkey",
         "HUAWEI_APP_ID": "华为appid", "HUAWEI_APP_KEY": "", "OPPO_APP_KEY": "oppo appkey",

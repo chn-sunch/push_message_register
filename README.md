@@ -7,13 +7,13 @@
 2. 服务器端保存token
 3. 如果长连接中断通过服务端sdk推送通知消息
 
-##安装
+# 安装
 在工程 pubspec.yaml 中加入 
 
         dependencies:
             push_message_register: 2.2.2
 
-##使用
+# 使用
 
         _pushMessageRegister.onReceiveMessage().listen((event) {
             print(event);
@@ -26,7 +26,7 @@
                 "MEIZU_APP_KEY": "魅族appkey"};
       
 
-##配置
+# 配置
 
 华为：需要配置xml和agconnect-services.json [HMS Core SDK](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-integrating-sdk-0000001050040084)
 <br />
@@ -38,7 +38,7 @@ Oppo: 需要配置xml [oppo Android SDK](https://open.oppomobile.com/wiki/doc/#i
 <br />
 魅族: 需要配置xml [meizu_Android SDK](http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129)
 
-##IOS和FCM推送导航
+# IOS和FCM推送导航
 ios推送 使用flutter_apns
 <br />
 fcm推送 使用firebase_messaging
