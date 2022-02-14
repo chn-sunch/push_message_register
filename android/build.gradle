@@ -1,0 +1,95 @@
+group 'com.jiandanyidian.push_message_register'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven {url 'https://developer.huawei.com/repo/'}
+        maven {
+            url 'https://maven.columbus.heytapmobi.com/repository/releases/'
+            credentials {
+                username 'nexus'
+                password 'c0b08da17e3ec36c3870fed674a0bcb36abc2e23'
+            }
+        }
+
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {url 'https://developer.huawei.com/repo/'}
+        maven {
+            url 'https://maven.columbus.heytapmobi.com/repository/releases/'
+            credentials {
+                username 'nexus'
+                password 'c0b08da17e3ec36c3870fed674a0bcb36abc2e23'
+            }
+        }
+
+        flatDir {
+            dirs project(':push_message_register').file('src/libs')
+        }
+
+    }
+}
+
+apply plugin: 'com.android.library'
+//apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+//apply plugin: 'com.huawei.agconnect'
+
+
+android {
+    compileSdkVersion 30
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 19
+    }
+}
+
+//获取local.properties配置文件
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+//获取flutter的sdk路径
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    //throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+//    implementation fileTree(include: ['*.aar'], dir: 'libs')
+    //https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-app-version-0000001074227861#section136111021172810
+    implementation 'com.huawei.hms:push:6.1.0.300'
+    //https://open.oppomobile.com/wiki/doc/#id=11050
+    implementation 'com.heytap.msp:push:3.0.0'
+    //https://dev.mi.com/console/appservice/push.html
+    implementation files('src/libs/MiPush_SDK_Client_4_9_1.jar')
+    //https://dev.vivo.com.cn/documentCenter/doc/365
+    implementation(name:"vivo_pushSDK_v3.0.0.4_484", ext: 'aar')
+    //http://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129
+    implementation 'com.meizu.flyme.internet:push-internal:4.1.4'
+
+
+    compileOnly files("$flutterRoot/bin/cache/artifacts/engine/android-arm/flutter.jar")
+}
