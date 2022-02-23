@@ -80,7 +80,8 @@ public class XiaoMiReceiver extends PushMessageReceiver {
         if (MiPushClient.COMMAND_REGISTER.equals(command)) {
             if (message.getResultCode() == ErrorCode.SUCCESS) {
                 mRegId = cmdArg1;
-                result.put("result","success");
+                result.put("result", "success");
+                result.put("brand", "xiaomi");
                 result.put("token", mRegId);
                 MainThreadUtil.runMainThread(()-> PushMessageRegisterPlugin.mEventSink.success(result));
             } else {

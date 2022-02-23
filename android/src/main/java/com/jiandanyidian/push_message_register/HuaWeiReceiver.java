@@ -45,6 +45,7 @@ public class HuaWeiReceiver extends HmsMessageService {
             // This method callback must be completed in 10 seconds. Otherwise, you need to start a new Job for callback processing.
             // refreshedTokenToServer(token);
             result.put("result","success");
+            result.put("brand", "huawei");
             result.put("token", token);
             MainThreadUtil.runMainThread(
                     ()-> PushMessageRegisterPlugin.mEventSink.success(result)

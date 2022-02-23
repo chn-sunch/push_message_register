@@ -25,6 +25,7 @@ public class MeizuRecevier extends MzPushMessageReceiver {
         String token = registerStatus.getPushId();
         if (!TextUtils.isEmpty(token)) {
             result.put("result","success");
+            result.put("brand", "meizu");
             result.put("token", token);
             MainThreadUtil.runMainThread(
                     ()-> PushMessageRegisterPlugin.mEventSink.success(result)

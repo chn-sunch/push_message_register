@@ -37,7 +37,6 @@ rootProject.allprojects {
         flatDir {
             dirs project(':push_message_register').file('src/libs')
         }
-
     }
 }
 

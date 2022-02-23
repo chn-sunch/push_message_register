@@ -125,7 +125,8 @@ public  class PushMessageRegisterPlugin implements FlutterPlugin, MethodCallHand
                         String token = HmsInstanceId.getInstance(mContext).getToken(appId, "HCM");
 
                         if (!TextUtils.isEmpty(token)) {
-                            result.put("result","success");
+                            result.put("result", "success");
+                            result.put("brand", "huawei");
                             result.put("token", token);
                             MainThreadUtil.runMainThread(
                                     ()-> PushMessageRegisterPlugin.mEventSink.success(result)
@@ -166,6 +167,7 @@ public  class PushMessageRegisterPlugin implements FlutterPlugin, MethodCallHand
                 if (state == 0) {
                     String regId = PushClient.getInstance(mContext).getRegId();
                     result.put("result","success");
+                    result.put("brand", "vivo");
                     result.put("token", regId);
                     MainThreadUtil.runMainThread(
                             ()-> PushMessageRegisterPlugin.mEventSink.success(result)
@@ -217,6 +219,7 @@ public  class PushMessageRegisterPlugin implements FlutterPlugin, MethodCallHand
         public void onRegister(int code, String s) {
             if (code == 0) {
                 result.put("result","success");
+                result.put("brand","oppo");
                 result.put("token", s);
             } else {
                 result.put("result","fail");
