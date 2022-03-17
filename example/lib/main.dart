@@ -17,7 +17,15 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   PushMessageRegister _pushMessageRegister = PushMessageRegister();
-  String _brand = "android";
+  String _brand = "other";
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _pushMessageRegister.destroy();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -37,7 +45,12 @@ class _MyAppState extends State<MyApp> {
         "OPPO_APP_SECRET": "oppo appsecret", "MEIZU_APP_ID": "魅族appid",
         "MEIZU_APP_KEY": "魅族appkey"
       };
-      // PushMessageRegister.testApi(apikey);
+      _brand = await PushMessageRegister.registerApi(apikey);
+
+      if(_brand == "other"){
+
+        //非以上品牌手机使用fcm或apns
+      }
     } on PlatformException {
       _brand = 'Failed ';
     }

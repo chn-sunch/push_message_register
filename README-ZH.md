@@ -1,24 +1,23 @@
 # push_message_register  
 
-Language: English | [中文](https://github.com/chn-sunch/push_message_register/blob/master/README-ZH.md)
 
-Register xiaomi、huawei、oppo、vivo、meizu push, get device brand and token(2022-02 update brand sdk).You need to pass the token and brand to your webserver,Push messages to users using the device manufacturer's SDK,Finally start the APP through deeplink.
+注册小米、华为、OPPO、VIVO、魅族推送，得到设备品牌和token（2022-02 更新各厂商sdk）。你需要将token和brand传到你的服务器，使用设备厂商的SDK将消息推送给用户，最后通过deeplink启动app。
 
-step:
-1. register and get token
-2. save token on webserver
-3. push notification message using bard sdk
+步骤：
+1. 注册获取token
+2. 服务器端保存token
+3. 通过厂商服务端sdk推送通知消息
 
-This project uses push_message_register in Github
+使用此插件的开源项目
 [flutter_mycommunity_app](https://github.com/chn-sunch/flutter_mycommunity_app)
 
-# Installer
-pubspec.yaml  
+# 安装
+在工程 pubspec.yaml 中加入 
 
     dependencies:
         push_message_register: 0.0.3
 
-# Apply
+# 使用
 
     if(Platform.isAndroid) {
         _pushMessageRegister.onReceiveMessage().listen((event) {
@@ -36,12 +35,12 @@ pubspec.yaml
                     }
                 }
             });
-            //vivo config in AndroidManifest.xml
+            //vivo配置在AndroidManifest.xml
             Map apikey = {
-               "XIAOMI_APP_ID": "xiaomi appid",
-               "XIAOMI_APP_KEY": "xiaomi key",
-               "HUAWEI_APP_ID": "huawei appid",
-               "HUAWEI_APP_KEY": "",//don't fill
+               "XIAOMI_APP_ID": "小米appid",
+               "XIAOMI_APP_KEY": "小米key",
+               "HUAWEI_APP_ID": "华为appid",
+               "HUAWEI_APP_KEY": "",//不用填
                "OPPO_APP_KEY": "oppo key",
                "OPPO_APP_SECRET": "oppo secret",
                "MEIZU_APP_ID": "meizu appid",
@@ -55,46 +54,46 @@ pubspec.yaml
     } 
 
   
-# CONFIG
-1 . uses-permission 
+# 配置
+1 . 权限申请
 
-       <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" /><!-- huawei icon-->
-       <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" /><!-- VIVO icon -->
-       <uses-permission android:name="android.permission.VIBRATE" /><!--xiaomi-->
-       <uses-permission android:name="android.permission.WAKE_LOCK" /><!--Allow the program to still run the background process after the phone screen is turned off, keep pushing long links -->
-       <uses-permission android:name="android.permission.READ_PHONE_STATE" /><!--Allow apps to access phone status  -->
-       <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" /><!--Allows apps to receive screen-lit or unlocked broadcasts -->
-       <uses-permission android:name="android.permission.RESTART_PACKAGES" /><!--Allow the program to end the task, the user closes the push service, and the push service exits  -->
-       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE " /><!--Allows programs to write to external storage for saving SDK running logs  -->
-       <uses-permission android:name="android.permission.GET_TASKS" /><!--Allows programs to obtain task information  -->
-       <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/><!-- oppo puush-->
-       <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/><!-- oppo push-->
-       <!-- Compatible with Flyme5 permission configuration-->
+       <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" /><!-- 华为角标 -->
+       <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" /><!-- VIVO角标权限 -->
+       <uses-permission android:name="android.permission.VIBRATE" /><!--振动器权限，小米推送必须-->
+       <uses-permission android:name="android.permission.WAKE_LOCK" /><!--允许程序在手机屏幕关闭后，后台进程仍然运行，保持推送长链接  -->
+       <uses-permission android:name="android.permission.READ_PHONE_STATE" /><!--允许应用访问手机状态  -->
+       <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" /><!--允许应用可以接收点亮屏幕或解锁广播 -->
+       <uses-permission android:name="android.permission.RESTART_PACKAGES" /><!--允许程序结束任务，用户关闭推送服务，推送服务退出  -->
+       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE " /><!--允许程序写入外部存储，用于保存SDK运行日志  -->
+       <uses-permission android:name="android.permission.GET_TASKS" /><!--允许程序获取任务信息  -->
+       <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/><!-- oppo推送-->
+       <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/><!-- oppo推送-->
+       <!-- 兼容 Flyme5 的权限配置-->
        <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE" />
        <permission android:name="com.jiandanyidian.flutter_mycommunity_app.push.permission.MESSAGE"
                    android:protectionLevel="signature"/>
        <uses-permission android:name="com.jiandanyidian.flutter_mycommunity_app.push.permission.MESSAGE" />
-       <!-- Compatible with Flyme3 permission configuration-->
+       <!-- 兼容 Flyme3 的权限配置-->
        <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
        <permission android:name="com.jiandanyidian.flutter_mycommunity_app.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
        <uses-permission android:name="com.jiandanyidian.flutter_mycommunity_app.permission.C2D_MESSAGE"/>
     
        <permission
                android:name="com.mycommunity_app.flutter_mycommunity_app.permission.MIPUSH_RECEIVE"
-               android:protectionLevel="signature" /><!-- xiaomi push-->
+               android:protectionLevel="signature" /><!-- 小米推送-->
     
-       <uses-permission android:name="com.mycommunity_app.flutter_mycommunity_app.permission.MIPUSH_RECEIVE" /><!-- xiaomi push-->
+       <uses-permission android:name="com.mycommunity_app.flutter_mycommunity_app.permission.MIPUSH_RECEIVE" /><!-- 小米推送-->
     
-2 . huawei phone
+2 . 华为手机
 
-android-app add the agconnect-services.json file downloaded from the Huawei Developer Platform
+android-app 里添加从华为开者平台下载的agconnect-services.json 文件
 
-android build.gradle add
+项目下的build.gradle添加
 
     dependencies {
         classpath 'com.huawei.agconnect:agcp:1.6.0.300'
     }
-app build.gradle add
+app下的build.gradle添加
    
     dependencies {
         implementation 'com.huawei.hms:push:6.1.0.300'
@@ -112,7 +111,7 @@ AndroidManifest.xml
         </intent-filter>
     </service>
 
-3 . xiaomi phone 
+3 . 小米手机
 
 AndroidManifest.xml
 
@@ -161,7 +160,7 @@ AndroidManifest.xml
                  </intent-filter>
     </receiver>                 
 
-4 . oppo phone
+4 . oppo手机
 
 
     <service android:name="com.jiandanyidian.push_message_register.OppoCompatibleDataMessageCallbackService" android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
@@ -177,9 +176,10 @@ AndroidManifest.xml
             </intent-filter>
     </service>
     
-5 . vivo phone
+5 . vivo手机
 
 
+    <!--Vivo Push SDK的版本信息-->
     <meta-data android:name="sdk_version_vivo"
                     android:value="484"/>
     <meta-data
@@ -191,11 +191,12 @@ AndroidManifest.xml
     <receiver android:name="com.jiandanyidian.push_message_register.VivoReceiver"
                 android:exported="false">
             <intent-filter>
+                <!--接收push消息-->
                 <action android:name="com.vivo.pushclient.action.RECEIVE"/>
             </intent-filter>
     </receiver>
     
- 6. meizu phone
+ 6. 魅族手机
  
  
     <service
@@ -204,9 +205,13 @@ AndroidManifest.xml
                     
     <receiver android:name="com.jiandanyidian.push_message_register.MeizuRecevier">
             <intent-filter>
+                <!-- 接收 push 消息 -->
                 <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
+                <!-- 接收 register 消息 -->
                 <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" />
+                <!-- 接收 unregister 消息-->
                 <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
+                <!-- 兼容低版本 Flyme3 推送服务配置 -->
                 <action android:name="com.meizu.c2dm.intent.REGISTRATION" />
                 <action android:name="com.meizu.c2dm.intent.RECEIVE" />
                 <category android:name="com.mycommunity_app.flutter_mycommunity_app" />
@@ -214,17 +219,17 @@ AndroidManifest.xml
     </receiver>      
 
 # SDK
-huawei：[HMS Core SDK](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-integrating-sdk-0000001050040084)
+华为：[HMS Core SDK](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-integrating-sdk-0000001050040084)
 
-xiaomi：[小米 Android SDK](https://dev.mi.com/console/doc/detail?pId=41)
+小米：[小米 Android SDK](https://dev.mi.com/console/doc/detail?pId=41)
 
 ViVo: [Vivo Android SDK](https://dev.vivo.com.cn/documentCenter/doc/365)
 
 Oppo: [oppo Android SDK](https://open.oppomobile.com/wiki/doc/#id=11050)
 
-meizu: [meizu_Android SDK](https://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129)
+魅族: [meizu_Android SDK](https://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129)
 
-# IOS AND FCM
-ios: flutter_apns
+# IOS和FCM推送
+ios推送 flutter_apns
 
-fcm: firebase_messaging
+fcm推送 firebase_messaging

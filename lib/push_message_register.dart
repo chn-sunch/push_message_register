@@ -20,10 +20,6 @@ class PushMessageRegister {
     return await _channel.invokeMethod('REGISTER', apiKeyMap);
   }
 
-  static Future<void> testApi(Map apiKeyMap)  async {
-    return await _channel.invokeMethod('TEST', apiKeyMap);
-  }
-
   Stream<Map<String, Object>> onReceiveMessage() {
     if (_receiveStream == null) {
       _receiveStream = StreamController();
@@ -35,5 +31,14 @@ class PushMessageRegister {
       });
     }
     return _receiveStream!.stream;
+  }
+
+  void destroy() {
+    if (_subscription != null) {
+      _receiveStream?.close();
+      _subscription?.cancel();
+      _receiveStream = null;
+      _subscription = null;
+    }
   }
 }

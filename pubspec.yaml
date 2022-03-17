@@ -1,7 +1,8 @@
 name: push_message_register
-description: A new flutter plugin project.
-version: 0.0.2
+description: 安卓手机小米、华为、魅族、vivo、oppo厂商通道注册获取token.
+version: 0.0.3
 homepage: https://github.com/chn-sunch/push_message_register
+author: sunch <fz_jiandanyidian@foxmail.com>
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
