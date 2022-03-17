@@ -60,9 +60,9 @@ public  class PushMessageRegisterPlugin implements FlutterPlugin, MethodCallHand
 
     @Override
     public void onMethodCall( MethodCall call, Result result) {
-        String brand = Build.BRAND;
+        String brand = "other";
 
-        if (call.method.equals("REGISTER")) {
+        if(call.method.equals("REGISTER")) {
             if(RomUtil.isMiui() && shouldInit()){
                 registerXiaoMiApiKey((Map) call.arguments);
                 brand = "xiaomi";
@@ -89,14 +89,6 @@ public  class PushMessageRegisterPlugin implements FlutterPlugin, MethodCallHand
             }
             result.success(brand);
         }
-
-        if(call.method.equals("TEST")){
-            registerHuaWeiApiKey((Map) call.arguments);
-            result.success(brand);
-        }
-//        else {
-//            result.notImplemented();
-//        }
     }
 
     @Override
