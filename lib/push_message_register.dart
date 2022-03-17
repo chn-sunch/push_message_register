@@ -16,7 +16,6 @@ class PushMessageRegister {
 
 
   static Future<String> registerApi(Map apiKeyMap)  async {
-    //vivo的appid配置在androidManifest.xml里面
     return await _channel.invokeMethod('REGISTER', apiKeyMap);
   }
 

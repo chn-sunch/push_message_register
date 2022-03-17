@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _pushMessageRegister.destroy();
+    _pushMessageRegister.destroy(); 
   }
 
   @override

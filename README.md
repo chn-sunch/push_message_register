@@ -58,7 +58,7 @@ pubspec.yaml
 # CONFIG
 1 . uses-permission 
 
-       <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" /><!-- huawei icon-->
+       <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"  /><!-- huawei icon-->
        <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" /><!-- VIVO icon -->
        <uses-permission android:name="android.permission.VIBRATE" /><!--xiaomi-->
        <uses-permission android:name="android.permission.WAKE_LOCK" /><!--Allow the program to still run the background process after the phone screen is turned off, keep pushing long links -->
