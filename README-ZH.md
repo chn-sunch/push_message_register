@@ -11,12 +11,6 @@
 使用此插件的开源项目
 
 
-# 安装
-在工程 pubspec.yaml 中加入 
-
-    dependencies:
-        push_message_register: 0.0.3
-
 # 使用
 
     if(Platform.isAndroid) {
