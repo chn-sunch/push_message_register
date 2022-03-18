@@ -12,11 +12,6 @@ step:
 This project uses push_message_register in Github
 [flutter_mycommunity_app](https://github.com/chn-sunch/flutter_mycommunity_app)
 
-# Installer
-pubspec.yaml  
-
-    dependencies:
-        push_message_register: 0.0.3
 
 # Apply
 
@@ -55,7 +50,7 @@ pubspec.yaml
     } 
 
   
-# CONFIG
+# Config
 1 . uses-permission 
 
        <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" /><!-- huawei icon-->
@@ -224,7 +219,7 @@ Oppo: [oppo Android SDK](https://open.oppomobile.com/wiki/doc/#id=11050)
 
 meizu: [meizu_Android SDK](https://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129)
 
-# IOS AND FCM
+# Ios And Fcm
 ios: flutter_apns
 
 fcm: firebase_messaging
