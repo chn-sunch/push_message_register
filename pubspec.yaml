@@ -1,6 +1,6 @@
 name: push_message_register
 description: android device xiaomi、huawei、meizu、vivo、oppo register token with push message.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/chn-sunch/push_message_register
 author: sunch <fz_jiandanyidian@foxmail.com>
 

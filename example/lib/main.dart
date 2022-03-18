@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _pushMessageRegister.destroy(); 
+    _pushMessageRegister.destroy();
   }
 
   @override
@@ -40,10 +40,10 @@ class _MyAppState extends State<MyApp> {
         print(event);
       });
       //vivo配置在AndroidManifest.xml
-      Map apikey = {"XIAOMI_APP_ID": "小米appid", "XIAOMI_APP_KEY": "小米appkey",
-        "HUAWEI_APP_ID": "华为appid", "HUAWEI_APP_KEY": "", "OPPO_APP_KEY": "oppo appkey",
-        "OPPO_APP_SECRET": "oppo appsecret", "MEIZU_APP_ID": "魅族appid",
-        "MEIZU_APP_KEY": "魅族appkey"
+      Map apikey = {"XIAOMI_APP_ID": "xiaomi appid", "XIAOMI_APP_KEY": "xiaomi appkey",
+        "HUAWEI_APP_ID": "huawei appid", "HUAWEI_APP_KEY": "", "OPPO_APP_KEY": "oppo appkey",
+        "OPPO_APP_SECRET": "oppo appsecret", "MEIZU_APP_ID": "meizu appid",
+        "MEIZU_APP_KEY": "meizu appkey"
       };
       _brand = await PushMessageRegister.registerApi(apikey);
 
