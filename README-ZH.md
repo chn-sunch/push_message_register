@@ -8,8 +8,8 @@
 2. 服务器端保存token
 3. 通过厂商服务端sdk推送通知消息
 
-使用此插件的开源项目 
-[flutter_mycommunity_app](https://github.com/chn-sunch/flutter_mycommunity_app)
+使用此插件的开源项目
+
 
 # 安装
 在工程 pubspec.yaml 中加入 
@@ -227,7 +227,7 @@ ViVo: [Vivo Android SDK](https://dev.vivo.com.cn/documentCenter/doc/365)
 
 Oppo: [oppo Android SDK](https://open.oppomobile.com/wiki/doc/#id=11050)
 
-魅族: [meizu_Android SDK](https://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129)
+魅族:  [meizu_Android SDK](https://open-wiki.flyme.cn/doc-wiki/index?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%80%85%E6%96%87%E6%A1%A3#id?129)
 
 # IOS和FCM推送
 ios推送 flutter_apns
