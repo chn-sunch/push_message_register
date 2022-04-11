@@ -8,7 +8,7 @@
 2. 服务器端保存token
 3. 通过厂商服务端sdk推送通知消息
 
-使用此插件的开源项目
+使用此插件的开源项目 [flutter_mycommunity_app](https://github.com/chn-sunch/flutter_mycommunity_app)
 
 
 # 使用
